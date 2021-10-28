@@ -56,7 +56,17 @@ public class Robot extends TimedRobot {
     } else if (m_stick.getRawButton(kDoubleSolenoidReverse)) {
       m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
+
+    m_motor.set(m_joystick.getY());
+
   }
+
+  @Override
+  public void robotInit() {
+    m_motor = new PWMSparkMax(kMotorPort);
+    m_joystick = new Joystick(kJoystickPort);
+  }
+
   //Motor stuff
 
   private static final int kMotorPort = 0;
