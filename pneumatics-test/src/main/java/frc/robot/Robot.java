@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+
 
 /**
  * This is a sample program showing the use of the solenoid classes during operator control. Three
@@ -54,4 +57,11 @@ public class Robot extends TimedRobot {
       m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
   }
+  //Motor stuff
+
+  private static final int kMotorPort = 0;
+  private static final int kJoystickPort = 0;
+
+  private MotorController m_motor;
+  private Joystick m_joystick;
 }
