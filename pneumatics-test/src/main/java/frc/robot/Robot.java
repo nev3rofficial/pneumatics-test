@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+// import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
 
 /**
@@ -57,11 +57,11 @@ public class Robot extends TimedRobot {
       m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
-    m_motor.set(m_joystick.getY());
+  //  m_motor.set(m_joystick.getY());
 
   }
 
-  @Override
+/* @Override
   public void robotInit() {
     m_motor = new PWMSparkMax(kMotorPort);
     m_joystick = new Joystick(kJoystickPort);
@@ -73,5 +73,5 @@ public class Robot extends TimedRobot {
   private static final int kJoystickPort = 0;
 
   private MotorController m_motor;
-  private Joystick m_joystick;
+  private Joystick m_joystick; */
 }
