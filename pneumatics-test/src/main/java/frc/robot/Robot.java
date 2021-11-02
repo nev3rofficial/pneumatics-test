@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 // import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 // import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
@@ -40,12 +38,12 @@ public class Robot extends TimedRobot {
   private static final int kDoubleSolenoidReverse = 3;
 
   //motor stuff part 2, the motoring
-  private static final int kMotorPort = 0;
+ /* private static final int kMotorPort = 0;
   private static final int kJoystickPort = 0;
 
   private MotorController m_motor;
   private Joystick m_joystick;
-
+*/
  // private static final int sorterMotor = 4;
   @Override
   public void teleopPeriodic() {
@@ -71,7 +69,7 @@ public class Robot extends TimedRobot {
 
   }
 
- @Override
+ /*@Override
   public void robotInit() {
     m_motor = new PWMSparkMax(kMotorPort);
     m_joystick = new Joystick(kJoystickPort);
@@ -88,5 +86,6 @@ public class Robot extends TimedRobot {
   private static final int kJoystickPort = 0;
 
   private MotorController m_motor;
-  private Joystick m_joystick; 
+  private Joystick m_joystick;
+  */ 
 }
