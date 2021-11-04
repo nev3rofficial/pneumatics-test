@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
-// import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-// import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 
 
 /**
@@ -31,19 +31,20 @@ public class Robot extends TimedRobot {
 
   
   // DoubleSolenoid corresponds to a double solenoid.
-  private final DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(6, 7);
+  private final DoubleSolenoid m_doubleSolenoidNoNut = new DoubleSolenoid(4, 5);
+  private final DoubleSolenoid m_doubleSolenoidNut = new DoubleSolenoid(6, 7);
 
-  private static final int kSolenoidButton = 1;
-  private static final int kDoubleSolenoidForward = 2;
-  private static final int kDoubleSolenoidReverse = 3;
+  private static final int kSolenoidButton = 1; // A
+  private static final int kDoubleSolenoidForward = 2; // B
+  private static final int kDoubleSolenoidReverse = 3; // X
 
-  //motor stuff part 2, the motoring
- /* private static final int kMotorPort = 0;
+  // Motor Code 
+  private static final int kMotorPort = 0;
   private static final int kJoystickPort = 0;
 
   private MotorController m_motor;
   private Joystick m_joystick;
-*/
+
  // private static final int sorterMotor = 4;
   @Override
   public void teleopPeriodic() {
@@ -60,32 +61,20 @@ public class Robot extends TimedRobot {
      * If both are pressed, set the solenoid will be set to Forwards.
      */
     if (m_stick.getRawButton(kDoubleSolenoidForward)) {
-      m_doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+      m_doubleSolenoidNoNut.set(DoubleSolenoid.Value.kForward);
+      m_doubleSolenoidNut.set(DoubleSolenoid.Value.kForward);
     } else if (m_stick.getRawButton(kDoubleSolenoidReverse)) {
-      m_doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+      m_doubleSolenoidNoNut.set(DoubleSolenoid.Value.kReverse);
+      m_doubleSolenoidNut.set(DoubleSolenoid.Value.kReverse);
     }
 
-  //  m_motor.set(m_joystick.getY());
+    m_motor.set(m_joystick.getY());
 
   }
 
- /*@Override
+ @Override
   public void robotInit() {
     m_motor = new PWMSparkMax(kMotorPort);
     m_joystick = new Joystick(kJoystickPort);
   }
-
-  //Motor stuff
-  @Override
-  public void robotInit() {
-    m_motor = new PWMSparkMax(kMotorPort);
-    m_joystick = new Joystick(kJoystickPort);
-  }
-
-  private static final int kMotorPort = 0;
-  private static final int kJoystickPort = 0;
-
-  private MotorController m_motor;
-  private Joystick m_joystick;
-  */ 
 }
